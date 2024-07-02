@@ -5,4 +5,4 @@ metadata:
   namespace: {{ .Release.Namespace }}
 spec:
   serviceName: Eventrouter SSE
-  endpoint: http://{{ include "eventsse.fullname" . }}-internal.{{ .Release.Namespace }}.svc.cluster.local/handle
+  endpoint: http://{{ include "eventsse.fullname" . }}-internal.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.port }}/handle
