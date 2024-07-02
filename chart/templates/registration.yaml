@@ -1,7 +1,7 @@
 apiVersion: eventrouter.krateo.io/v1alpha1
 kind: Registration
 metadata:
-  name: eventsse
+  name: {{ include "eventsse.fullname" . }}
   namespace: {{ .Release.Namespace }}
 spec:
   serviceName: Eventrouter SSE

@@ -41,7 +41,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8083
 
 ingress:
   enabled: false
@@ -74,11 +74,11 @@ resources: {}
 livenessProbe:
   httpGet:
     path: /health
-    port: eventrouter
+    port: http
 readinessProbe:
   httpGet:
     path: /health
-    port: eventrouter
+    port: http
 
 autoscaling:
   enabled: false
@@ -105,3 +105,8 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+env:
+  EVENTSSE_DEBUG: "true"
+  EVENTSSE_CORS: "true"
+  EVENTSSE_DUMP_ENV: "true"
