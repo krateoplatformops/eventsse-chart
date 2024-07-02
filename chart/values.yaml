@@ -105,3 +105,8 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+env:
+  EVENTSSE_DEBUG: "true"
+  EVENTSSE_CORS: "true"
+  EVENTSSE_DUMP_ENV: "true"
