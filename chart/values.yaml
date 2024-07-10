@@ -8,7 +8,7 @@ image:
   repository: ghcr.io/krateoplatformops/eventsse
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: 0.1.4
 
 imagePullSecrets: []
 nameOverride: ""
@@ -40,8 +40,9 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
-  port: 8083
+  type: LoadBalancer
+  port: 30080
+  nodePort: 30080
 
 ingress:
   enabled: false
@@ -110,3 +111,9 @@ env:
   EVENTSSE_DEBUG: "true"
   EVENTSSE_CORS: "true"
   EVENTSSE_DUMP_ENV: "true"
+  EVENTSSE_TTL: 120
+
+etcd:
+  service:
+    name: etcd
+    port: 2379
