@@ -4,14 +4,14 @@
 	</head>
 	<body>
 		<script type="text/javascript">
-            const source = new EventSource("//127.0.0.1:30081/notifications", {
+            const source = new EventSource("http://localhost:8083/notifications", {
                 withCredentials: false,
             });
-			
-			source.addEventListener("krateo", function (event) { 4
+
+			source.addEventListener("aeb3555f-c9c2-4e0d-8d80-658e29cf04a3", function (event) { 4
   				document.getElementById("msg").innerHTML += event.data + "<br>";
 			});
-			
+
 			source.onmessage = function(event) {
 			    console.log(event)
 			};
