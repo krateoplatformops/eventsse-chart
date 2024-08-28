@@ -20,6 +20,10 @@ metadata:
   name: {{ include "eventsse.fullname" . }}-external
   labels:
     {{- include "eventsse.labels" . | nindent 4 }}
+  annotations:
+    {{- with .Values.service.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -29,6 +33,6 @@ spec:
       name: sse
       {{- if eq .Values.service.type "NodePort" }}
       nodePort: {{ .Values.service.nodePort }}
-      {{- end }}  
+      {{- end }}
   selector:
     {{- include "eventsse.selectorLabels" . | nindent 4 }}
