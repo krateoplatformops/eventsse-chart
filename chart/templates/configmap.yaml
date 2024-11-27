@@ -6,8 +6,6 @@ metadata:
     {{- include "eventsse.labels" . | nindent 4 }}
 data:
   EVENTSSE_PORT: "{{ .Values.service.port }}"
-  EVENTSSE_DEBUG: "{{ .Values.env.EVENTSSE_DEBUG }}"
-  EVENTSSE_CORS: "{{ .Values.env.EVENTSSE_CORS }}"
-  EVENTSSE_DUMP_ENV: "{{ .Values.env.EVENTSSE_DUMP_ENV }}"
-  EVENTSSE_TTL: "{{ .Values.env.EVENTSSE_TTL }}"
-  EVENTSSE_GET_LIMIT:  "{{ .Values.env.EVENTSSE_GET_LIMIT }}"
+  {{- range $key, $value := .Values.env }}
+  {{ $key }}: {{ $value | quote }}
+  {{- end }}
