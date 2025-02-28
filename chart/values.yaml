@@ -116,5 +116,5 @@ env:
 
 etcd:
   service:
-    name: etcd
+    name: eventsse-etcd
     port: 2379
