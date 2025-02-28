@@ -111,7 +111,7 @@ env:
   EVENTSSE_DEBUG: "true"
   EVENTSSE_CORS: "true"
   EVENTSSE_DUMP_ENV: "true"
-  EVENTSSE_TTL: 86400 #seconds
+  EVENTSSE_TTL: 1800 #seconds
   EVENTSSE_GET_LIMIT: 500
 
 etcd:
